@@ -36,6 +36,14 @@ export const POST = async (req) => {
       }) 
       Promise.all(updateAllMembers);
       
+      if (!isGroup) {
+        const otherMemberId = members.find(member => member !== currentUserId);
+        const otherMember = await User.findById(otherMemberId);
+        const currentUser = await User.findById(currentUserId);
+        chat.name = `${otherMember.username} ${currentUser.username}`;
+        await chat.save();
+      }
+
       /* Trigger a Pusher event for each member to notify a new chat */
       chat.members.map(async (member) => {
         await pusherServer.trigger(member._id.toString(), "new-chat", chat)

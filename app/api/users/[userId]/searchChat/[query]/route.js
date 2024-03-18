@@ -2,13 +2,17 @@ import Chat from "@models/Chat";
 import Message from "@models/Message";
 import User from "@models/User";
 import { connectToDB } from "@mongodb";
+const NodeRSA = require('node-rsa');
 
 export const GET = async (req, { params }) => {
   try {
     await connectToDB();
 
-    // const currentUserId = params.userId
-    // const query = params.query
+    // Load RSA keys from .env file or directly from the environment variables
+    const RSA_PRIVATE_KEY = process.env.RSA_PRIVATE_KEY;
+
+    // Create RSA key instances
+    const key_private = new NodeRSA(RSA_PRIVATE_KEY);
 
     const { userId, query } = params;
 
@@ -29,6 +33,13 @@ export const GET = async (req, { params }) => {
         },
       })
       .exec();
+
+      // Decrypt messages before sending them
+      searchedChat.forEach(chat => {
+      chat.messages.forEach(message => {
+        message.text = key_private.decrypt(message.text, 'utf8');
+      });
+    });
 
     return new Response(JSON.stringify(searchedChat), { status: 200 });
   } catch (err) {

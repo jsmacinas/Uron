@@ -30,9 +30,10 @@ const ChatList = ({ currentChatId }) => {
   };
 
   useEffect(() => {
-    if (currentUser) {
-      getChats();
-    }
+    getChats();
+    // if (currentUser) {
+    //   getChats();
+    // }
   }, [currentUser, search]);
 
   useEffect(() => {

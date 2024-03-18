@@ -28,6 +28,7 @@ const Contacts = () => {
   };
 
   useEffect(() => {
+    getContacts();
     if (currentUser) getContacts();
   }, [currentUser, search]);
 

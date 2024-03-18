@@ -20,7 +20,7 @@ export const POST = async (req) => {
 
     const body = await req.json();
 
-    const { chatId, currentUserId, text, photo } = body;
+    const { chatId, currentUserId, text } = body;
 
     const currentUser = await User.findById(currentUserId);
 
@@ -32,7 +32,6 @@ export const POST = async (req) => {
       chat: chatId,
       sender: currentUser,
       text: encryptedText,
-      photo,
       seenBy: currentUserId,
     });
 

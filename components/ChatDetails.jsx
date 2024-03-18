@@ -74,23 +74,23 @@ const ChatDetails = ({ chatId }) => {
     }
   };
 
-  const sendPhoto = async (result) => {
-    try {
-      const res = await fetch("/api/messages", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          chatId,
-          currentUserId: currentUser._id,
-          photo: result?.info?.secure_url,
-        }),
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const sendPhoto = async (result) => {
+  //   try {
+  //     const res = await fetch("/api/messages", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         chatId,
+  //         currentUserId: currentUser._id,
+  //         photo: result?.info?.secure_url,
+  //       }),
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   useEffect(() => {
     pusherClient.subscribe(chatId);

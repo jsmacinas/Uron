@@ -13,10 +13,6 @@ const MessageSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-  photo: {
-    type: String,
-    default: "",
-  },
   createdAt: {
     type: Date,
     default: Date.now,

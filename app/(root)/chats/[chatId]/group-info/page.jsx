@@ -95,7 +95,7 @@ const GroupInfo = () => {
         <CldUploadButton
             options={{ maxFiles: 1 }}
             onUpload={uploadPhoto}
-            uploadPreset="upecg01j"
+            uploadPreset="btwcfsk4"
           >
           <img
             src={watch("groupPhoto") || "/assets/group.png"}

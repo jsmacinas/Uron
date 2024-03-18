@@ -36,7 +36,7 @@
 }
 
 .msg-input-field {
-  @apply w-[800px] max-sm:w-full bg-transparent outline-none;
+  @apply w-[850px] max-sm:w-full bg-transparent outline-none h-11;
 }
 
 .button {
@@ -127,7 +127,7 @@
 }
 
 .contact-list {
-  @apply h-screen w-1/2 max-lg:w-full flex flex-col gap-5 bg-white rounded-3xl py-5 px-8;
+  @apply h-screen w-1/2 max-lg:w-full flex flex-col gap-5 bg-white rounded-3xl py-5 px-8 pb-5;
 }
 
 .contact {
@@ -143,7 +143,7 @@
 }
 
 .selected-contact {
-  @apply text-base-bold p-2 bg-pink-1 rounded-lg;
+  @apply text-base-bold p-2 bg-green1 rounded-lg;
 }
 
 /* ChatDetails */

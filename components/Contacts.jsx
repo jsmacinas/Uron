@@ -40,13 +40,14 @@ const Contacts = () => {
       setSelectedContacts((prevSelectedContacts) =>
         prevSelectedContacts.filter((item) => item !== contact)
       );
+      // setSelectedContacts([]);
     } else {
       setSelectedContacts((prevSelectedContacts) => [
         ...prevSelectedContacts,
         contact,
       ]);
+      // setSelectedContacts([contact]);
     }
-    // setSelectedContacts(contact);
   };
 
   /* ADD GROUP CHAT NAME */
@@ -94,8 +95,7 @@ const Contacts = () => {
                 className="contact"
                 onClick={() => handleSelect(user)}
               >
-                {selectedContacts.find((item) => item === user) ? 
-                // {selectedContacts === user ? 
+                {selectedContacts.find((item) => item === user) ?  
                   (
                   <CheckCircle sx={{ color: "#25D3A0" }} />
                 ) : (
@@ -116,9 +116,9 @@ const Contacts = () => {
           {isGroup && (
             <>
               <div className="flex flex-col gap-3">
-                <p className="text-body-bold">Group Chat Name</p>
+                <p className="text-body-bold">Group Name</p>
                 <input
-                  placeholder="Enter group chat name..."
+                  placeholder="Enter group name..."
                   className="input-group-name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}

@@ -69,7 +69,7 @@ const ChatList = ({ currentChatId }) => {
   return loading ? (
     <Loader />
   ) : (
-    <div className="chat-list">
+    <div className="chat-list" style={{ height: "718px" }}>
       <input
         placeholder="Search chat..."
         className="input-search"
